@@ -1,0 +1,25 @@
+
+<html>
+	<head>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script>
+			$(document).ready(function() {
+			    function playmp3(){
+			        var audioElement = new Audio("music/puppy.mp4");
+			        audioElement.addEventListener("canplay", function() {
+			            audioElement.play();
+			        });
+			    }
+			    playmp3();
+			});
+		</script>
+		<style>
+			body {
+				margin: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<iframe style="border:none;z-index:9000;" height="100%" width="100%" scrollbars="no" src="../../index.html"></iframe>
+	</body>
+</html>

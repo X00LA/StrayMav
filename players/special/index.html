@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script>
+			$(document).ready(function() {
+			    $("body").append('<img id="striger" src="images/striger.png" style="position:absolute; left:0; top:0; margin-left:100%; margin-top:100%;z-index:9001;" />?');
+			    $("body").css("overflow","hidden");
+			    //Rip from Tehurn Sorreh
+			    function flyLikeAnEagle() {
+			        var rng = Math.floor(Math.random()*150) * (Math.round(Math.random()*1)*2-1);
+			        var zfg = Math.floor(Math.random()*100+rng) + "%";
+			        $("#striger").animate( {"margin-top":-1000,   "margin-left":zfg}, 1500, 'linear', function(){fallLikeABeagle();} );
+			    }
+			    function fallLikeABeagle() {
+			        var rng = Math.floor(Math.random()*150) * (Math.round(Math.random()*1)*2-1);
+			        var zfg = Math.floor(Math.random()*100+rng) + "%";
+			        $("#striger").animate( {"margin-top":"150%", "margin-left":zfg}, 1500, 'linear', function(){flyLikeAnEagle();} );
+			    }
+			    function spinLikeARaver() {
+			        var interval = null;
+			        var counter = 0;
+			        clearInterval(interval);
+			        interval = setInterval(function(){
+			            if (counter != -360) {
+			                counter -= 1;
+			                $("#striger").css({
+			                    MozTransform: 'rotate(-' + -counter + 'deg)',
+			                    WebkitTransform: 'rotate(' + -counter + 'deg)',
+			                    transform: 'rotate(' + -counter + 'deg)'
+			                });
+			            } else counter = 0;
+			        }, 10);
+			    }
+			    function playmp3(){
+			        var audioElement = new Audio("music/tiger.mp3");
+			        audioElement.addEventListener("canplay", function() {
+			            audioElement.play();
+			        });
+			    }
+			    flyLikeAnEagle();
+			    spinLikeARaver();
+			    playmp3();
+			});
+		</script>
+		<style>
+			body {
+				margin: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<iframe style="border:none;z-index:9000;" height="100%" width="100%" scrollbars="no" src="../../index.html"></iframe>
+	</body>
+</html>
